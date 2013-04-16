@@ -15,7 +15,7 @@ Autores
 ------
 
 Paulo Meirelles
-
+Vanessa Barbosa
 
 Licença
 -------
