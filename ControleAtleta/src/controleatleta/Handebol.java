@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Handebol extends Atleta {
 
-    private char posicao; //Pontas , Armadores , Pinto , Goleiros
+    private char posicao; //Pontas , Armadores , Pivo , Goleiros
     private ArrayList<Time> times;
     private String Federacao_esportiva;
     private String participacao;
