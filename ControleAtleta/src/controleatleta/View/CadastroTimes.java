@@ -1,5 +1,7 @@
-package controleatleta;
+package controleatleta.View;
 
+import controleatleta.Model.Time;
+import controleatleta.Model.Time;
 import javax.swing.JOptionPane;
 
 public class CadastroTimes extends javax.swing.JDialog {

@@ -1,5 +1,13 @@
-package controleatleta;
+package controleatleta.View;
 
+import controleatleta.Controller.ControleHandebol;
+import controleatleta.Controller.ControleHandebol;
+import controleatleta.Model.Endereco;
+import controleatleta.Model.Endereco;
+import controleatleta.Model.Handebol;
+import controleatleta.Model.Handebol;
+import controleatleta.Model.Time;
+import controleatleta.Model.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

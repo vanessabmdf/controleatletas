@@ -1,4 +1,4 @@
-package controleatleta;
+package controleatleta.Model;
 
 public class Time {
 

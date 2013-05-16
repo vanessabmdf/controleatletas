@@ -1,4 +1,6 @@
-package controleatleta;
+package controleatleta.Controller;
+
+import controleatleta.View.CadastroHandebol;
 
 public class ControleAtleta {
 

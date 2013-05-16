@@ -1,5 +1,6 @@
-package controleatleta;
+package controleatleta.Controller;
 
+import controleatleta.Model.Handebol;
 import java.util.ArrayList;
 
 public class ControleHandebol {

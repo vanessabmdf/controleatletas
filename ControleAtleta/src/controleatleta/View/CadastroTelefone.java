@@ -8,7 +8,7 @@
  *
  * Created on 18/10/2011, 20:16:05
  */
-package controleatleta;
+package controleatleta.View;
 
 public class CadastroTelefone extends javax.swing.JDialog {
     private String telefone;
@@ -79,7 +79,7 @@ public class CadastroTelefone extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelar)
                     .addComponent(jButtonAdicionar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
