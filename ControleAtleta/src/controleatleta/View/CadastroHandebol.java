@@ -1,12 +1,9 @@
 package controleatleta.View;
 
 import controleatleta.Controller.ControleHandebol;
-import controleatleta.Controller.ControleHandebol;
-import controleatleta.Model.Endereco;
+import controleatleta.util.ValidaCamposdaView;
 import controleatleta.Model.Endereco;
 import controleatleta.Model.Handebol;
-import controleatleta.Model.Handebol;
-import controleatleta.Model.Time;
 import controleatleta.Model.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -39,6 +36,7 @@ public class CadastroHandebol extends javax.swing.JFrame {
     private boolean novoRegistro;
     private DefaultListModel telefonesListModel;
     private DefaultListModel timeListModel;
+    private ValidaCamposdaView validacoes= new ValidaCamposdaView();
 
     public CadastroHandebol() {
         initComponents();
@@ -149,59 +147,6 @@ public class CadastroHandebol extends javax.swing.JFrame {
         
     }
 
-    private boolean validarCampos() {
-        if (jTextFieldNome.getText().trim().length() == 0) {
-
-
-
-            this.exibirInformacao("O valor do campo 'Nome' não foi informado.");
-            jTextFieldNome.requestFocus();
-            return false;
-        }
-        if (jTextFieldDataNascimento.getText().length() != 0) {
-            try {
-                dateFormat.parse(jTextFieldDataNascimento.getText());
-            } catch (ParseException ex) {
-                this.exibirInformacao("O valor do campo 'Data de Nascimento' é inválido.");
-                jTextFieldDataNascimento.requestFocus();
-                return false;
-            }
-        }
-        try {
-            Double.parseDouble(jTextFieldAltura.getText());
-        } catch (Exception ex) {
-            this.exibirInformacao("O valor do campo 'Altura' é inválido.");
-            jTextFieldAltura.requestFocus();
-            return false;
-        }
-        
-        try {
-            Double.parseDouble(jTextFieldPeso.getText());
-        } catch (Exception ex) {
-            this.exibirInformacao("O valor do campo 'Peso' é inválido.");
-            jTextFieldPeso.requestFocus();
-            return false;
-        }
-        
-        try {
-            Double.parseDouble(jTextFieldUniforme.getText());
-        } catch (Exception ex) {
-            this.exibirInformacao("O valor do campo 'Número do Uniforme' é inválido.");
-            jTextFieldUniforme.requestFocus();
-            return false;
-        }
-        if (!jTextFieldNumero.getText().equals("")) {
-            try {
-                Integer.parseInt(jTextFieldNumero.getText());
-            } catch (Exception ex) {
-                this.exibirInformacao("O valor do campo 'Número' é inválido.");
-                jTextFieldNumero.requestFocus();
-                return false;
-            }
-        }
-        return true;
-    }
-
     private void habilitarDesabilitarCampos() {
         boolean registroSelecionado = (umJogador_de_Habdebol != null);
         jTextFieldAltura.setEnabled(modoAlteracao);
@@ -245,7 +190,8 @@ public class CadastroHandebol extends javax.swing.JFrame {
         ArrayList<Time> times;
         Date dataNascimento;
 
-        if (this.validarCampos() == false) {
+        if (validacoes.validarCampos((jTextFieldNome.getText()), jTextFieldDataNascimento.getText(),jTextFieldAltura.getText(),
+        jTextFieldPeso.getText(),jTextFieldUniforme.getText(),jTextFieldNumero.getText())== false) {
             return;
         }
 
@@ -255,7 +201,7 @@ public class CadastroHandebol extends javax.swing.JFrame {
             try {
                 dataNascimento = dateFormat.parse(jTextFieldDataNascimento.getText());
             } catch (ParseException ex) {
-                exibirInformacao("Falha ao gravar a data de nascimento: " + ex.toString());
+                validacoes.exibirInformacao("Falha ao gravar a data de nascimento: " + ex.toString());
                 return;
             }
         }
@@ -346,10 +292,6 @@ public class CadastroHandebol extends javax.swing.JFrame {
             model.addRow(new String[]{b.getNome(), b.getCpf()});
         }
         jTableListaJogadoresHandebol.setModel(model);
-    }
-
-    private void exibirInformacao(String info) {
-        JOptionPane.showMessageDialog(this, info, "Atenção", JOptionPane.INFORMATION_MESSAGE);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
